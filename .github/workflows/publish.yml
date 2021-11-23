@@ -8,6 +8,7 @@ jobs:
   qa:
     uses: morten-olsen/safety-latch/.github/workflows/qa.yml@main
   build:
+    needs: qa
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
