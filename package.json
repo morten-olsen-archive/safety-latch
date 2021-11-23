@@ -1,0 +1,25 @@
+{
+  "name": "safety-latch",
+  "version": "0.1.0",
+  "license": "MIT",
+  "bin": {
+    "safety-latch": "./bin/safety-latch.js"
+  },
+  "scripts": {
+    "prepare": "ncc build src/bin.ts -o dist",
+    "dev": "ncc build --watch src/bin.ts -o dist"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/inquirer": "^8.1.3",
+    "@types/node": "^16.11.9",
+    "@vercel/ncc": "^0.32.0",
+    "commander": "^8.3.0",
+    "glob": "^7.2.0",
+    "inquirer": "^8.2.0",
+    "package-json-type": "^1.0.3",
+    "ts-node": "^10.4.0",
+    "execa": "^5.1.1",
+    "typescript": "^4.5.2"
+  }
+}
