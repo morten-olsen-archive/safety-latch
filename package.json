@@ -7,7 +7,8 @@
   },
   "scripts": {
     "prepare": "ncc build src/bin.ts -o dist",
-    "dev": "ncc build --watch src/bin.ts -o dist"
+    "dev": "ncc build --watch src/bin.ts -o dist",
+    "test": "echo No tests configured"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",
