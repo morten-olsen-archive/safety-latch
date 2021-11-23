@@ -2,6 +2,7 @@ name: QA
 
 on:
   push:
+  workflow_call:
 
 jobs:
   qa:
