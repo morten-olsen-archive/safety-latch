@@ -1,0 +1,29 @@
+name: NPM publish CD workflow
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.release.target_commitish }}
+    - name: Use Node.js 16
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
+        registry-url: https://registry.npmjs.org/
+    - run: yarn install --ignore-scripts --frozen-lockfile
+    - run: git config --global user.name "GitHub CD bot"
+    - run: git config --global user.email "github-cd-bot@example.com"
+    - run: yarn version --new-version="${{ github.event.release.tag_name }}"
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - run: git push
+      env:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
