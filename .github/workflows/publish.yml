@@ -5,6 +5,8 @@ on:
     types: [published]
 
 jobs:
+  qa:
+    uses: morten-olsen/safety-latch/blob/main/.github/workflows/qa.yml@main
   build:
     runs-on: ubuntu-latest
     steps:
