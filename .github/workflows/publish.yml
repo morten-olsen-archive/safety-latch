@@ -23,7 +23,7 @@ jobs:
     - run: git config --global user.name "GitHub CD bot"
     - run: git config --global user.email "github-cd-bot@example.com"
     - run: yarn version --new-version="${{ github.event.release.tag_name }}"
-    - run: npm publish
+    - run: npm publish --tag="${GITHUB_REF##*/}"
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - run: git push
